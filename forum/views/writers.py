@@ -98,7 +98,7 @@ def ask(request):
 
                     if request.user.is_authenticated():
                         messages.info(request, _("Your question is pending until you %s.") % html.hyperlink(
-                            reverse('send_validation_email'), _("validate your email")
+                            django_settings.APP_URL + reverse('send_validation_email', prefix='/'), _("validate your email")
                         ))
                         return HttpResponseRedirect(reverse('index'))
                     else:
@@ -273,7 +273,7 @@ def answer(request, id):
 
             if request.user.is_authenticated():
                 messages.info(request, _("Your answer is pending until you %s.") % html.hyperlink(
-                    reverse('send_validation_email'), _("validate your email")
+                    django_settings.APP_URL + reverse('send_validation_email', prefix='/'), _("validate your email")
                 ))
                 return HttpResponseRedirect(question.get_absolute_url())
             else:

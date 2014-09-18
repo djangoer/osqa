@@ -58,6 +58,11 @@ DATABASES = {
 CACHE_BACKEND = 'file://%s' % os.path.join(os.path.dirname(__file__),'cache').replace('\\','/')
 #CACHE_BACKEND = 'dummy://'
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+# Customize the values below if OSQA is in a subfolder and especially you're planning on
+# running multiple Django applications (OSQA or others) on the same domain in different
+# subfolders
+#SESSION_COOKIE_PATH = '/'
+#CSRF_COOKIE_PATH = '/'
 
 # This should be equal to your domain name, plus the web application context.
 # This shouldn't be followed by a trailing slash.
@@ -72,7 +77,6 @@ TIME_ZONE = 'America/New_York'
 USE_I18N = True
 LANGUAGE_CODE = 'en'
 
-DJANGO_VERSION = 1.1
 OSQA_DEFAULT_SKIN = 'default'
 
 DISABLED_MODULES = ['books', 'recaptcha', 'project_badges']
