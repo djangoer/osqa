@@ -77,7 +77,7 @@ TIME_ZONE = 'America/New_York'
 USE_I18N = True
 LANGUAGE_CODE = 'en'
 
-OSQA_DEFAULT_SKIN = 'default'
+OSQA_DEFAULT_SKIN = 'twitterbootstrap' #'default'
 
 DISABLED_MODULES = ['books', 'recaptcha', 'project_badges','facebookauth','oauthauth','openidauth','exporter']
 
