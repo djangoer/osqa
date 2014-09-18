@@ -35,7 +35,7 @@ LOGGING = {
 ADMINS = ()
 MANAGERS = ADMINS
 
-DEBUG = False
+DEBUG = True #False
 DEBUG_TOOLBAR_CONFIG = {
     'INTERCEPT_REDIRECTS': True
 }
@@ -79,4 +79,12 @@ LANGUAGE_CODE = 'en'
 
 OSQA_DEFAULT_SKIN = 'default'
 
-DISABLED_MODULES = ['books', 'recaptcha', 'project_badges']
+DISABLED_MODULES = ['books', 'recaptcha', 'project_badges','facebookauth','oauthauth','openidauth','exporter']
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(SITE_SRC_ROOT,'tmp', 'db.sqlite3'),
+    }
+}
