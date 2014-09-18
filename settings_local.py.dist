@@ -86,5 +86,6 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(SITE_SRC_ROOT,'tmp', 'db.sqlite3'),
+        'ATOMIC_REQUESTS': True
     }
 }
