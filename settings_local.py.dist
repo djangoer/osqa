@@ -1,7 +1,7 @@
 # encoding:utf-8
-import os.path
+import os#.path
+BASE_DIR = os.path.dirname(__file__)
 
-SITE_SRC_ROOT = os.path.dirname(__file__)
 LOG_FILENAME = 'django.osqa.log'
 LOGGING = {
     'version': 1,
@@ -15,7 +15,7 @@ LOGGING = {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
             'formatter': 'default',
-            'filename': os.path.join(SITE_SRC_ROOT, 'log', LOG_FILENAME),
+            'filename': os.path.join(BASE_DIR, 'log', LOG_FILENAME),
         },
     },
     'loggers' : {
@@ -43,18 +43,6 @@ TEMPLATE_DEBUG = DEBUG
 INTERNAL_IPS = ('127.0.0.1',)
 ALLOWED_HOSTS = ('yourhostname.com',)
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'osqa',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': '',
-        'PORT': '',
-        'CONN_MAX_AGE': 600,
-    }
-}
-
 CACHE_BACKEND = 'file://%s' % os.path.join(os.path.dirname(__file__),'cache').replace('\\','/')
 #CACHE_BACKEND = 'dummy://'
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
@@ -67,17 +55,17 @@ SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 # This should be equal to your domain name, plus the web application context.
 # This shouldn't be followed by a trailing slash.
 # I.e., http://www.yoursite.com or http://www.hostedsite.com/yourhostapp
-APP_URL = 'http://'
+APP_URL = 'http://askkerala.suhailvs.webfactional.com'
 
 #LOCALIZATIONS
-TIME_ZONE = 'America/New_York'
+TIME_ZONE = 'UTC'
 
 #OTHER SETTINGS
 
 USE_I18N = True
 LANGUAGE_CODE = 'en'
 
-OSQA_DEFAULT_SKIN = 'default'
+OSQA_DEFAULT_SKIN = 'twitterbootstrap' #'default'
 
 DISABLED_MODULES = ['books', 'recaptcha', 'project_badges','facebookauth','oauthauth','openidauth','exporter']
 
@@ -85,6 +73,18 @@ DISABLED_MODULES = ['books', 'recaptcha', 'project_badges','facebookauth','oauth
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(SITE_SRC_ROOT,'tmp', 'db.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+cur_host= os.environ.get('HOSTNAME','')
+if cur_host=='web469.webfaction.com':
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2', 
+            'NAME': 'ask',
+            'USER': 'suhail',
+            'PASSWORD': 'suhail',
+            'HOST': '',   # Or an IP Address that your DB is hosted on
+        }
+    }

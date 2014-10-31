@@ -85,8 +85,7 @@ if FORCE_SCRIPT_NAME.endswith('/'):
 
 #Module system initialization
 MODULES_PACKAGE = 'forum_modules'
-MODULES_FOLDER = os.path.join(SITE_SRC_ROOT, MODULES_PACKAGE)
-
+MODULES_FOLDER = os.path.join(BASE_DIR, MODULES_PACKAGE)
 MODULE_LIST = filter(lambda m: getattr(m, 'CAN_USE', True), [
         __import__('forum_modules.%s' % f, globals(), locals(), ['forum_modules'])
         for f in os.listdir(MODULES_FOLDER)
@@ -115,13 +114,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'forum',
 ]
-
+"""
 try:
     import south
     INSTALLED_APPS.append('south')
 except:
     pass
-
+"""
 # Try loading Gunicorn web server
 try:
     import gunicorn

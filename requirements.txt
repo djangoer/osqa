@@ -1,9 +1,6 @@
 markdown
 html5lib
-python-openid
-South
 python-memcached
 django
-django-debug-toolbar
 django-endless-pagination
 pytz
