@@ -170,7 +170,7 @@ blockquote blockquote {
 
 #room {
     background-color: #FFFFFF;
-    border-bottom: 1px solid #777777;
+    border-bottom: 1px solid #ccc;
     padding: 10px 0;
 }
 
@@ -648,7 +648,7 @@ a.medal:hover {
 }
 
 .headlineA {
-    border-bottom: 1px solid #777777;
+    border-bottom: 1px solid #ccc;
     font-size: 13px;
     font-weight: 800;
     height: 30px;
@@ -694,7 +694,7 @@ a.medal:hover {
 }
 
 .headNormal {
-    border-bottom: 1px solid #777777;
+    border-bottom: 1px solid #ccc;
     font-size: 15px;
     font-weight: bold;
     margin-bottom: 12px;
@@ -703,7 +703,7 @@ a.medal:hover {
 }
 
 .headUser {
-    border-bottom: 1px solid #777777;
+    border-bottom: 1px solid #ccc;
     font-size: 20px;
     font-weight: 800;
     margin-bottom: 12px;

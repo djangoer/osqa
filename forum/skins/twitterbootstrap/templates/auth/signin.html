@@ -15,16 +15,16 @@
                 <form role="form" method="POST" action="{% url "auth_provider_signin" "local" %}">{% csrf_token %}
                   <div class="form-group">
                     <label for="id_username">Username</label>
-                    <input id="id_username" type="text" class="form-control" name="username" maxlength="30" placeholder="Enter Username">
+                    <input id="id_username" type="text" class="form-control" name="username" maxlength="30" placeholder="Enter Username" tabindex="1">
                   </div>
                   <div class="form-group">
-                    <label for="id_password">Password <a href="{% url "auth_request_tempsignin" %}">(forgot password)</a></label>
-                    <input type="password" class="form-control" style="border-radius:0px" id="id_password" placeholder="Password" name="password" maxlength="128">
+                    <label for="id_password">Password <a href="{% url "auth_request_tempsignin" %}" tabindex="4">(forgot password)</a></label>
+                    <input type="password" class="form-control" style="border-radius:0px" id="id_password" placeholder="Password" name="password" maxlength="128" tabindex="2">
                   </div>
-                  <input id="blogin" name="blogin" type="submit" class="btn btn-sm btn-default" value="Sign in">                  
+                  <input id="blogin" name="blogin" type="submit" class="btn btn-sm btn-default" value="Sign in" tabindex="3">                  
                 </form>
                 <h3 class="or_label">Or...</h3>
-                <a class="btn btn-sm btn-success" href="{% url "auth_local_register" %}">Create account</a>
+                <a class="btn btn-sm btn-success" href="{% url "auth_local_register" %}" tabindex="5">Create account</a>
             </div>
         </div>
     </div>

@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}Central Login{% endblock %}
+
+{% block content %}
+{% if messages %}
+<div class="alert alert-dismissable alert-info">
+    <button type="button" class="close" data-dismiss="alert">×</button>
+    <ul>
+    {% for message in messages %}
+        <li class="{{ message.tags }}">{{ message|urlize }}</li>
+    {% endfor %}
+    </ul>
+</div>   
+{% endif %}
+
+{% if form.errors %}
+<div class="alert alert-dismissable alert-danger">
+    <button type="button" class="close" data-dismiss="alert">×</button>
+    <ul>
+    {% for error in form.non_field_errors %}
+        <li>{{ error }}</li>
+    {% endfor %}
+    {% for field in form %}
+        {% for error in field.errors %}
+            <li>{{ error }}</li>
+        {% endfor %}
+    {% endfor %}
+    </ul>
+</div>      
+{% endif %}
+
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="panel panel-default">
+            <div class="panel-heading"><h3 class="panel-title"><strong>Sign in </strong></h3></div>
+            <div class="panel-body">
+                <form id="login-form" class="group" method="post">{% csrf_token %}
+                  <div class="form-group{% if form.username.errors %} has-error{% endif %}">
+                    <label>{{ form.username.label_tag }}</label>
+                    <input type="text" class="form-control" name="username" maxlength="30" placeholder="Enter Username" tabindex="1">
+                  </div>
+                  <div class="form-group{% if form.username.errors %} has-error{% endif %}">
+                    <label>{{ form.password.label_tag }}<a href="{% url "auth_request_tempsignin" %}" tabindex="4">(forgot password)</a></label>
+                    <input type="password" class="form-control" placeholder="Password" name="password" maxlength="128" tabindex="2">
+                  </div>
+                  <input type="submit" name="submit_login" class="btn btn-success" value="Sign in" tabindex="3">
+                </form> 
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

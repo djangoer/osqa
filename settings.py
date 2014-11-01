@@ -57,9 +57,10 @@ from settings_local import *
 
 template_loaders = (
     'django.template.loaders.filesystem.Loader',
-    'django.template.loaders.app_directories.Loader',
+    
     'forum.modules.template_loader.module_templates_loader',
     'forum.skins.load_template_source',
+    'django.template.loaders.app_directories.Loader',
 )
 TEMPLATE_LOADERS = list(template_loaders) if DEBUG else [ ('django.template.loaders.cached.Loader', template_loaders) ]
 
@@ -112,7 +113,9 @@ INSTALLED_APPS = [
    'django.contrib.humanize',
     'django.contrib.sitemaps',
     'django.contrib.messages',
+
     'forum',
+    'mama_cas',
 ]
 """
 try:

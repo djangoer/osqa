@@ -4,3 +4,4 @@ python-memcached
 django
 django-endless-pagination
 pytz
+django-mama-cas
