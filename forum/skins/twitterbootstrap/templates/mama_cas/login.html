@@ -2,6 +2,14 @@
 {% block title %}Central Login{% endblock %}
 
 {% block content %}
+
+{% if request.user.is_authenticated %}
+<div class="alert alert-dismissable alert-success">
+    <button type="button" class="close" data-dismiss="alert">×</button>
+    <p>You are already logged in</p>
+</div>
+{% else %}
+
 {% if messages %}
 <div class="alert alert-dismissable alert-info">
     <button type="button" class="close" data-dismiss="alert">×</button>
@@ -49,4 +57,5 @@
         </div>
     </div>
 </div>
+{% endif %}
 {% endblock %}

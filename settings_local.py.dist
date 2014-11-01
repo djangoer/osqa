@@ -72,8 +72,11 @@ DISABLED_MODULES = ['books', 'recaptcha', 'project_badges','facebookauth','oauth
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'stack',
+        'USER': 'root',
+        'PASSWORD': 'suhail',
+        'HOST': '',   # Or an IP Address that your DB is hosted on
     }
 }
 
@@ -82,7 +85,7 @@ if cur_host=='web469.webfaction.com':
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2', 
-            'NAME': 'ask',
+            'NAME': 'stack',
             'USER': 'suhail',
             'PASSWORD': 'suhail',
             'HOST': '',   # Or an IP Address that your DB is hosted on
